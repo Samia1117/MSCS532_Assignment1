@@ -1,3 +1,10 @@
+"""
+Insertion sort treats the array as two parts:
+a sorted part on the left
+an unsorted part on the right
+The first element (arr[0]) is already considered sorted by itself
+"""
+
 def insertion_sort_desc(arr):
     """
     Sort a list in monotonically decreasing order using insertion sort.
@@ -16,7 +23,22 @@ def insertion_sort_desc(arr):
 
 
 if __name__ == "__main__":
-    sample_data = [5, 2, 9, 1, 5, 6]
-    print("Original:", sample_data)
-    print("Sorted (monotonically decreasing order):", insertion_sort_desc(sample_data))
-    
+
+    # Try a variety of different sort orders
+    test_cases = [
+        [5, 2, 9, 1, 5, 6],
+        [1, 2, 3, 4],
+        [9, 7, 5, 3],
+        [],
+        [4, 2, 4, 1, 2],
+        [-3, -1, -7, -2],
+    ]
+
+    for index, original_list in enumerate(test_cases, start=1):
+        print(f"Test case {index}:")
+        print("Original:", original_list)
+        print(
+            "Sorted (monotonically decreasing order):",
+            insertion_sort_desc(original_list.copy()), # copy to create a new list
+        )
+        print()
